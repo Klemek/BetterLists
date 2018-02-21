@@ -22,8 +22,8 @@ With BetterLists :
 BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
 
 BetterList<String> contactsEmails = contacts.skip(5)
-											.where(c -> c.getEmail() != null)
-											.<String>select(c -> c.getEmail());
+					.where(c -> c.getEmail() != null)
+					.<String>select(c -> c.getEmail());
 ```
 
 NOTE : Please note that, unlike C# LINQ, these functions are not optimized at low levels and will have the same impact as standard loops in your program. 
