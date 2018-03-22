@@ -1,7 +1,6 @@
 package fr.klemek.betterlists;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Vector;
 
 /**
@@ -24,7 +23,7 @@ public class BetterVector<T> extends Vector<T> implements BetterList<T> {
 	 *            - the collection whose elements are to be placed into this vector
 	 */
 	public static <T> BetterVector<T> fromList(Collection<T> c) {
-		return new BetterVector<T>(c);
+		return new BetterVector<>(c);
 	}
 	
 	/**
@@ -94,7 +93,7 @@ public class BetterVector<T> extends Vector<T> implements BetterList<T> {
 	 */
 	@Override
 	public BetterVector<T> subList(int fromIndex, int toIndex) {
-		return (BetterVector<T>) ((List<T>) this).subList(fromIndex, toIndex);
+		return (BetterVector<T>) this.subList(fromIndex, toIndex);
 	}
 
 }

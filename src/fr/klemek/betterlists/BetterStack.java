@@ -1,6 +1,5 @@
 package fr.klemek.betterlists;
 
-import java.util.List;
 import java.util.Stack;
 
 /**
@@ -45,7 +44,7 @@ public class BetterStack<T> extends Stack<T> implements BetterList<T> {
 	 */
 	@Override
 	public BetterStack<T> subList(int fromIndex, int toIndex) {
-		return (BetterStack<T>) ((List<T>) this).subList(fromIndex, toIndex);
+		return (BetterStack<T>) this.subList(fromIndex, toIndex);
 	}
 
 }

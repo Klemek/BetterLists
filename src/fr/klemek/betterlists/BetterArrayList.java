@@ -2,7 +2,6 @@ package fr.klemek.betterlists;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * An extension of the java.util.ArrayList class which include some of the C#
@@ -24,7 +23,7 @@ public class BetterArrayList<T> extends ArrayList<T> implements BetterList<T> {
 	 *            - the collection whose elements are to be placed into this list
 	 */
 	public static <T> BetterArrayList<T> fromList(Collection<T> c) {
-		return new BetterArrayList<T>(c);
+		return new BetterArrayList<>(c);
 	}
 
 	/**
@@ -78,6 +77,6 @@ public class BetterArrayList<T> extends ArrayList<T> implements BetterList<T> {
 	 */
 	@Override
 	public BetterArrayList<T> subList(int fromIndex, int toIndex) {
-		return (BetterArrayList<T>) ((List<T>) this).subList(fromIndex, toIndex);
+		return (BetterArrayList<T>) this.subList(fromIndex, toIndex);
 	}
 }

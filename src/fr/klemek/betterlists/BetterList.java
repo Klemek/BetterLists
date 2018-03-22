@@ -1,7 +1,6 @@
 package fr.klemek.betterlists;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
@@ -82,7 +81,7 @@ public interface BetterList<T> extends List<T> {
 	 *         in the other.
 	 */
 	public default BetterList<T> exclusion(List<T> other) {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (!other.contains(element))
 				out.add(element);
@@ -274,16 +273,9 @@ public interface BetterList<T> extends List<T> {
 	 * @return a List whose elements are sorted according to a key.
 	 */
 	public default <E extends Comparable<E>> BetterList<T> orderBy(Function<T, E> selector){
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		out.addAll(this);
-		Collections.sort(out, new Comparator<T>() {
-
-			@Override
-			public int compare(T o1, T o2) {
-				return selector.apply(o1).compareTo(selector.apply(o2));
-			}
-
-		});
+		Collections.sort(out, (o1,o2) -> selector.apply(o1).compareTo(selector.apply(o2)));
 		return out;
 	}
 
@@ -294,16 +286,9 @@ public interface BetterList<T> extends List<T> {
 	 * @return a List whose elements are sorted according to a key.
 	 */
 	public default <E extends Comparable<E>> BetterList<T> orderByDescending(Function<T, E> selector){
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		out.addAll(this);
-		Collections.sort(out, new Comparator<T>() {
-
-			@Override
-			public int compare(T o1, T o2) {
-				return selector.apply(o2).compareTo(selector.apply(o1));
-			}
-
-		});
+		Collections.sort(out, (o1,o2) -> selector.apply(o2).compareTo(selector.apply(o1)));
 		return out;
 	}
 	
@@ -314,7 +299,7 @@ public interface BetterList<T> extends List<T> {
 	 *         reverse order.
 	 */
 	public default BetterList<T> reverse() {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>(this.size());
 		for (T element : this)
 			out.add(0, element);
 		return out;
@@ -331,7 +316,7 @@ public interface BetterList<T> extends List<T> {
 	 *         function on each element of the sequence.
 	 */
 	public default <E> BetterList<E> select(Function<T, E> selector) {
-		BetterList<E> out = new BetterArrayList<E>();
+		BetterList<E> out = new BetterArrayList<>();
 		for (T element : this)
 			out.add(selector.apply(element));
 		return out;
@@ -348,7 +333,7 @@ public interface BetterList<T> extends List<T> {
 	 *         index in the sequence.
 	 */
 	public default BetterList<T> skip(int count) {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		int n = 0;
 		for (T element : this) {
 			if (n >= count)
@@ -369,7 +354,7 @@ public interface BetterList<T> extends List<T> {
 	 *         specified by predicate.
 	 */
 	public default BetterList<T> skipWhile(Function<T, Boolean> predicate) {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		boolean match = true;
 		for (T element : this)
 			if (!match || !predicate.apply(element)) {
@@ -405,7 +390,7 @@ public interface BetterList<T> extends List<T> {
 	 *         of the input sequence.
 	 */
 	public default BetterList<T> take(int count) {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>(count);
 		int n = 0;
 		for (T element : this) {
 			if (n < count)
@@ -426,7 +411,7 @@ public interface BetterList<T> extends List<T> {
 	 *         the element at which the test no longer passes.
 	 */
 	public default BetterList<T> takeWhile(Function<T, Boolean> predicate) {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (predicate.apply(element))
 				out.add(element);
@@ -445,7 +430,7 @@ public interface BetterList<T> extends List<T> {
 	 *         duplicates.
 	 */
 	public default BetterList<T> union(List<T> other) {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (other.contains(element))
 				out.add(element);
@@ -461,7 +446,7 @@ public interface BetterList<T> extends List<T> {
 	 *         condition.
 	 */
 	public default BetterList<T> where(Function<T, Boolean> predicate) {
-		BetterList<T> out = new BetterArrayList<T>();
+		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (predicate.apply(element))
 				out.add(element);

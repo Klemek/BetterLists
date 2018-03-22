@@ -4,7 +4,7 @@ An extension of the java.util.List interface which include some of the C# LINQ u
 
 List classes are extended as well. (ArrayList -> BetterArrayList)
 
-Current version v1.0
+Current version v1.1
 
 Before BetterLists :
 ```Java
@@ -30,8 +30,29 @@ NOTE : Please note that, unlike C# LINQ, these functions are not optimized at lo
 
 ## Download
 
-* [betterlists-1.0.jar](../../raw/master/download/betterlists-1.0.jar)
-* [betterlists-1.0-sources.jar](../../raw/master/download/betterlists-1.0-sources.jar)
+* [betterlists-1.1.jar](../../raw/master/download/betterlists-1.0.jar)
+
+## Maven
+
+You can use this project as a maven dependency with this :
+```XML
+<repositories>
+...
+	<repository>
+	    <id>klemek.betterlists</id>
+	    <url>https://github.com/klemek/betterlists/raw/mvn-repo</url>
+	</repository>
+</repositories>
+...
+<dependencies>
+...
+	<dependency>
+		<groupId>klemek</groupId>
+		<artifactId>betterlists</artifactId>
+		<version>1.1</version>
+	</dependency>
+</dependencies>
+```
 
 ## All code examples
 ### List

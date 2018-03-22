@@ -2,7 +2,6 @@ package fr.klemek.betterlists;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * An extension of the java.util.LinkedList class which include some of the C#
@@ -24,7 +23,7 @@ public class BetterLinkedList<T> extends LinkedList<T> implements BetterList<T> 
 	 *            - the collection whose elements are to be placed into this list
 	 */
 	public static <T> BetterLinkedList<T> fromList(Collection<T> c) {
-		return new BetterLinkedList<T>(c);
+		return new BetterLinkedList<>(c);
 	}
 
 	/**
@@ -68,7 +67,7 @@ public class BetterLinkedList<T> extends LinkedList<T> implements BetterList<T> 
 	 */
 	@Override
 	public BetterLinkedList<T> subList(int fromIndex, int toIndex) {
-		return (BetterLinkedList<T>) ((List<T>) this).subList(fromIndex, toIndex);
+		return (BetterLinkedList<T>) this.subList(fromIndex, toIndex);
 	}
 
 }
