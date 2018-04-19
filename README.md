@@ -4,7 +4,7 @@ An extension of the java.util.List interface which include some of the C# LINQ u
 
 List classes are extended as well. (ArrayList -> BetterArrayList)
 
-Current version v1.1
+Current version v1.2
 
 Before BetterLists :
 ```Java
@@ -30,7 +30,7 @@ NOTE : Please note that, unlike C# LINQ, these functions are not optimized at lo
 
 ## Download
 
-* [betterlists-1.1.jar](../../raw/master/download/betterlists-1.0.jar)
+* [betterlists-1.2.jar](../../raw/master/download/betterlists-1.2.jar)
 
 ## Maven
 
@@ -49,7 +49,7 @@ You can use this project as a maven dependency with this :
 	<dependency>
 		<groupId>klemek</groupId>
 		<artifactId>betterlists</artifactId>
-		<version>1.1</version>
+		<version>1.2</version>
 	</dependency>
 </dependencies>
 ```
@@ -68,7 +68,7 @@ You can use this project as a maven dependency with this :
 | [max](#max) | Invokes a transform function on each element of the sequence and returns the maximum nullable Double value. |
 | [mean](#mean) | Computes the mean of the sequence of Double values that are obtained by invoking a transform function on each element of the input sequence. |
 | [min](#min) | Invokes a transform function on each element of the sequence and returns the minimum nullable Double value. |
-| [orderBy / orderByDescending](#orderby-orderbydescending) | Sorts the elements of a sequence in ascending order by using a specified comparer. (You can user orderByDescending to change the order) |
+| [orderBy / orderByDescending](#orderby-orderbydescending) | Sorts the elements of a sequence in ascending order by using a specified comparator. (You can user orderByDescending to change the order) |
 | [reverse](#reverse) | Inverts the order of the elements in the sequence. |
 | [select](#select) | Projects each element of a sequence into a new form. |
 | [skip / skipWhile](#skip-skipwhile) | Bypasses elements in the sequence as long as a specified condition is true and then returns the remaining elements. |
@@ -111,19 +111,21 @@ BetterList<Contact> invalidFrenchContacts = frenchContacts.exclusion(validContac
 ```
 
 ### first / firstOrDefault
-Returns the first element in the sequence that satisfies a specified condition. (Returns an error if no elements match the condition unless you use the `firstOrDefault` function)
+Returns the first element in the sequence that satisfies a specified condition. (Throws an error if no elements match the condition unless you use the `firstOrDefault` function)
 ```Java
 BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
 
-Contact firstManager = contacts.first(c -> c.isManager());
+Contact firstManager = contacts.first(c -> c.isManager()); //can throw NoSuchElementException
+Contact firstContact = contacts.firstOrDefault(null); //return null if the list is empty
 ```
 
 ### last / lastOrDefault
-Returns the last element in the sequence that satisfies a specified condition. (Returns an error if no elements match the condition unless you use the `lastOrDefault` function)
+Returns the last element in the sequence that satisfies a specified condition. (Throws an error if no elements match the condition unless you use the `lastOrDefault` function)
 ```Java
 BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
 
-Contact lastRegular = contacts.last(c -> !c.isManager());
+Contact lastRegular = contacts.last(c -> !c.isManager()); //can throw NoSuchElementException
+Contact lastManager = contacts.lastOrDefault(c -> c.isManager(), null); //return null there is no manager
 ```
 
 ### max
@@ -156,6 +158,7 @@ Sorts the elements of a sequence in ascending order by using a specified compare
 BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
 
 BetterList<Contact> orderedContacts = contacts.orderBy(c -> c.getName);
+BetterList<Contact> orderedContacts2 = contacts.orderByDescending(c -> c.getAge()); //oldest first
 ```
 
 ### reverse
@@ -179,7 +182,8 @@ Bypasses elements in the sequence as long as a specified condition is true and t
 ```Java
 BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
 
-BetterList<Contact> contacts2 = contacts.skipWhile(c -> c.getEmail().startsWith("society"));
+BetterList<Contact> contacts2 = contacts.skip(3);
+BetterList<Contact> contacts3 = contacts.skipWhile(c -> c.getEmail().startsWith("society"));
 ```
 
 ### sum
@@ -195,7 +199,8 @@ Returns a specified number of contiguous elements from the start of the sequence
 ```Java
 BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
 
-BetterList<Contact> contacts2 = contacts.takeWhile(c -> c.getEmail().startsWith("society"));
+BetterList<Contact> contacts2 = contacts.take(5);
+BetterList<Contact> contacts3 = contacts.takeWhile(c -> c.getEmail().startsWith("society"));
 ```
 
 ### union

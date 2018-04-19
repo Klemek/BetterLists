@@ -1,6 +1,7 @@
 package fr.klemek.betterlists;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -26,6 +27,15 @@ public class BetterArrayList<T> extends ArrayList<T> implements BetterList<T> {
 		return new BetterArrayList<>(c);
 	}
 
+    /**
+     * Constructs a list containing the elements given in argument.
+     *
+     * @param a - the elements to be placed into this list
+     */
+    public static <T> BetterArrayList<T> asList(T... a) {
+        return new BetterArrayList<>(a);
+    }
+
 	/**
 	 * Constructs an empty list with an initial capacity of ten.
 	 */
@@ -45,14 +55,23 @@ public class BetterArrayList<T> extends ArrayList<T> implements BetterList<T> {
 	}
 
 	/**
-	 * Constructs an empty list with the specified initial capacity.
-	 * 
-	 * @param initialCapacity
-	 *            - the initial capacity of the list
-	 */
-	public BetterArrayList(int initialCapacity) {
-		super(initialCapacity);
-	}
+     * Constructs a list containing the elements given in argument.
+     *
+     * @param a
+     *            - the elements to be placed into this list
+     */
+    public BetterArrayList(T... a) {
+        super(Arrays.asList(a));
+    }
+
+    /**
+     * Constructs an empty list with the specified initial capacity.
+     *
+     * @param initialCapacity - the initial capacity of the list
+     */
+    public BetterArrayList(int initialCapacity) {
+        super(initialCapacity);
+    }
 
 	/**
 	 * Returns a view of the portion of this list between the specified fromIndex,
@@ -77,6 +96,6 @@ public class BetterArrayList<T> extends ArrayList<T> implements BetterList<T> {
 	 */
 	@Override
 	public BetterArrayList<T> subList(int fromIndex, int toIndex) {
-		return (BetterArrayList<T>) this.subList(fromIndex, toIndex);
-	}
+        return (BetterArrayList<T>) super.subList(fromIndex, toIndex);
+    }
 }

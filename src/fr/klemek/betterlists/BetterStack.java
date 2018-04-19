@@ -44,7 +44,7 @@ public class BetterStack<T> extends Stack<T> implements BetterList<T> {
 	 */
 	@Override
 	public BetterStack<T> subList(int fromIndex, int toIndex) {
-		return (BetterStack<T>) this.subList(fromIndex, toIndex);
+		return (BetterStack<T>) super.subList(fromIndex, toIndex);
 	}
 
 }

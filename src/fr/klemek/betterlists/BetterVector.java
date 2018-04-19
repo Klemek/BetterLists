@@ -1,5 +1,6 @@
 package fr.klemek.betterlists;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Vector;
 
@@ -25,7 +26,16 @@ public class BetterVector<T> extends Vector<T> implements BetterList<T> {
 	public static <T> BetterVector<T> fromList(Collection<T> c) {
 		return new BetterVector<>(c);
 	}
-	
+
+	/**
+	 * Constructs a vector containing the elements given in argument.
+	 *
+	 * @param a - the elements to be placed into this vector
+	 */
+	public static <T> BetterVector<T> asVector(T... a) {
+		return new BetterVector<>(a);
+	}
+
 	/**
 	 * Constructs an empty vector so that its internal data array has size 10 and
 	 * its standard capacity increment is zero.
@@ -46,11 +56,19 @@ public class BetterVector<T> extends Vector<T> implements BetterList<T> {
 	}
 
 	/**
+	 * Constructs a vector containing the elements given in argument.
+	 *
+	 * @param a - the elements to be placed into this list
+	 */
+	public BetterVector(T... a) {
+		super(Arrays.asList(a));
+	}
+
+	/**
 	 * Constructs an empty vector with the specified initial capacity and with its
 	 * capacity increment equal to zero.
-	 * 
-	 * @param initialCapacity
-	 *            - the initial capacity of the vector
+	 *
+	 * @param initialCapacity - the initial capacity of the vector
 	 */
 	public BetterVector(int initialCapacity) {
 		super(initialCapacity);
@@ -93,7 +111,7 @@ public class BetterVector<T> extends Vector<T> implements BetterList<T> {
 	 */
 	@Override
 	public BetterVector<T> subList(int fromIndex, int toIndex) {
-		return (BetterVector<T>) this.subList(fromIndex, toIndex);
+		return (BetterVector<T>) super.subList(fromIndex, toIndex);
 	}
 
 }

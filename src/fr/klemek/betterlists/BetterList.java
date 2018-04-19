@@ -38,7 +38,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return true if any elements in the source sequence pass the test in the
 	 *         specified predicate; otherwise, false.
 	 */
-	public default boolean any(Function<T, Boolean> predicate) {
+    default boolean any(Function<T, Boolean> predicate) {
 		for (T element : this)
 			if (predicate.apply(element))
 				return true;
@@ -50,7 +50,7 @@ public interface BetterList<T> extends List<T> {
 	 * 
 	 * @return The number of elements in the input sequence.
 	 */
-	public default int count() {
+    default int count() {
 		return count(e -> true);
 	}
 
@@ -63,7 +63,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return A number that represents how many elements in the sequence satisfy
 	 *         the condition in the predicate function.
 	 */
-	public default int count(Function<T, Boolean> predicate) {
+    default int count(Function<T, Boolean> predicate) {
 		int out = 0;
 		for (T element : this)
 			if (predicate.apply(element))
@@ -80,7 +80,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return A List that contains the elements from the first sequence not present
 	 *         in the other.
 	 */
-	public default BetterList<T> exclusion(List<T> other) {
+    default BetterList<T> exclusion(List<T> other) {
 		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (!other.contains(element))
@@ -95,7 +95,7 @@ public interface BetterList<T> extends List<T> {
 	 *             If the sequence is empty.
 	 * @return The first element in the sequence.
 	 */
-	public default T first() {
+    default T first() {
 		return first(e -> true);
 	}
 
@@ -111,7 +111,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return The first element in the sequence that passes the test in the
 	 *         specified predicate function.
 	 */
-	public default T first(Function<T, Boolean> predicate) {
+    default T first(Function<T, Boolean> predicate) {
 		for (T element : this)
 			if (predicate.apply(element))
 				return element;
@@ -130,7 +130,7 @@ public interface BetterList<T> extends List<T> {
 	 *         test specified by predicate; otherwise, the first element in the
 	 *         sequence that passes the test specified by predicate.
 	 */
-	public default T firstOrDefault(Function<T, Boolean> predicate, T defaultValue) {
+    default T firstOrDefault(Function<T, Boolean> predicate, T defaultValue) {
 		for (T element : this)
 			if (predicate.apply(element))
 				return element;
@@ -146,7 +146,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return defaultValue if the sequence is empty otherwise, the first element in
 	 *         the sequence.
 	 */
-	public default T firstOrDefault(T defaultValue) {
+    default T firstOrDefault(T defaultValue) {
 		return firstOrDefault(e -> true, defaultValue);
 	}
 
@@ -157,7 +157,7 @@ public interface BetterList<T> extends List<T> {
 	 *             If the sequence is empty.
 	 * @return the last element of the sequence.
 	 */
-	public default T last() {
+    default T last() {
 		return last(e -> true);
 	}
 
@@ -173,7 +173,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return the last element of the sequence that satisfies a specified
 	 *         condition.
 	 */
-	public default T last(Function<T, Boolean> predicate) {
+    default T last(Function<T, Boolean> predicate) {
 		T value = null;
 		for (T element : this)
 			if (predicate.apply(element))
@@ -195,7 +195,7 @@ public interface BetterList<T> extends List<T> {
 	 *         test specified by predicate; otherwise, the last element in the
 	 *         sequence that passes the test specified by predicate.
 	 */
-	public default T lastOrDefault(Function<T, Boolean> predicate, T defaultValue) {
+    default T lastOrDefault(Function<T, Boolean> predicate, T defaultValue) {
 		T value = null;
 		for (T element : this)
 			if (predicate.apply(element))
@@ -212,7 +212,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return defaultValue if the sequence is empty otherwise, the last element in
 	 *         the sequence.
 	 */
-	public default T lastOrDefault(T defaultValue) {
+    default T lastOrDefault(T defaultValue) {
 		return lastOrDefault(e -> true, defaultValue);
 	}
 
@@ -225,7 +225,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return The value of type Double that corresponds to the maximum value in the
 	 *         sequence or null if the sequence is empty.
 	 */
-	public default Double max(Function<T, Double> selector) {
+    default Double max(Function<T, Double> selector) {
 		Double max = null;
 		for (T element : this)
 			if (max == null || selector.apply(element) > max)
@@ -242,7 +242,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return The mean of the projected values. Null if the sequence contains no
 	 *         elements.
 	 */
-	public default Double mean(Function<T, Double> selector) {
+    default Double mean(Function<T, Double> selector) {
 		int count = this.count();
 		if (count == 0)
 			return null;
@@ -258,7 +258,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return The value of type Double that corresponds to the minimum value in the
 	 *         sequence or null if the sequence is empty.
 	 */
-	public default Double min(Function<T, Double> selector) {
+    default Double min(Function<T, Double> selector) {
 		Double min = null;
 		for (T element : this)
 			if (min == null || selector.apply(element) < min)
@@ -272,7 +272,7 @@ public interface BetterList<T> extends List<T> {
 	 *            - A transform function to apply to each element.
 	 * @return a List whose elements are sorted according to a key.
 	 */
-	public default <E extends Comparable<E>> BetterList<T> orderBy(Function<T, E> selector){
+    default <E extends Comparable<E>> BetterList<T> orderBy(Function<T, E> selector) {
 		BetterList<T> out = new BetterArrayList<>();
 		out.addAll(this);
 		Collections.sort(out, (o1,o2) -> selector.apply(o1).compareTo(selector.apply(o2)));
@@ -285,7 +285,7 @@ public interface BetterList<T> extends List<T> {
 	 *            - A transform function to apply to each element.
 	 * @return a List whose elements are sorted according to a key.
 	 */
-	public default <E extends Comparable<E>> BetterList<T> orderByDescending(Function<T, E> selector){
+    default <E extends Comparable<E>> BetterList<T> orderByDescending(Function<T, E> selector) {
 		BetterList<T> out = new BetterArrayList<>();
 		out.addAll(this);
 		Collections.sort(out, (o1,o2) -> selector.apply(o2).compareTo(selector.apply(o1)));
@@ -298,7 +298,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return A sequence whose elements correspond to those of the sequence in
 	 *         reverse order.
 	 */
-	public default BetterList<T> reverse() {
+    default BetterList<T> reverse() {
 		BetterList<T> out = new BetterArrayList<>(this.size());
 		for (T element : this)
 			out.add(0, element);
@@ -315,7 +315,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return A List whose elements are the result of invoking the transform
 	 *         function on each element of the sequence.
 	 */
-	public default <E> BetterList<E> select(Function<T, E> selector) {
+    default <E> BetterList<E> select(Function<T, E> selector) {
 		BetterList<E> out = new BetterArrayList<>();
 		for (T element : this)
 			out.add(selector.apply(element));
@@ -332,7 +332,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return a List that contains the elements that occur after the specified
 	 *         index in the sequence.
 	 */
-	public default BetterList<T> skip(int count) {
+    default BetterList<T> skip(int count) {
 		BetterList<T> out = new BetterArrayList<>();
 		int n = 0;
 		for (T element : this) {
@@ -353,7 +353,7 @@ public interface BetterList<T> extends List<T> {
 	 *         first element in the linear series that does not pass the test
 	 *         specified by predicate.
 	 */
-	public default BetterList<T> skipWhile(Function<T, Boolean> predicate) {
+    default BetterList<T> skipWhile(Function<T, Boolean> predicate) {
 		BetterList<T> out = new BetterArrayList<>();
 		boolean match = true;
 		for (T element : this)
@@ -373,7 +373,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return The sum of the projected values. Zero if the sequence contains no
 	 *         elements.
 	 */
-	public default Double sum(Function<T, Double> selector) {
+    default Double sum(Function<T, Double> selector) {
 		double sum = 0d;
 		for (T element : this)
 			sum += selector.apply(element);
@@ -389,7 +389,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return a List that contains the specified number of elements from the start
 	 *         of the input sequence.
 	 */
-	public default BetterList<T> take(int count) {
+    default BetterList<T> take(int count) {
 		BetterList<T> out = new BetterArrayList<>(count);
 		int n = 0;
 		for (T element : this) {
@@ -410,7 +410,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return a List that contains the elements from the sequence that occur before
 	 *         the element at which the test no longer passes.
 	 */
-	public default BetterList<T> takeWhile(Function<T, Boolean> predicate) {
+    default BetterList<T> takeWhile(Function<T, Boolean> predicate) {
 		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (predicate.apply(element))
@@ -429,7 +429,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return A List that contains the elements from both sequences, excluding
 	 *         duplicates.
 	 */
-	public default BetterList<T> union(List<T> other) {
+    default BetterList<T> union(List<T> other) {
 		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (other.contains(element))
@@ -445,7 +445,7 @@ public interface BetterList<T> extends List<T> {
 	 * @return a List that contains elements from the sequence that satisfy the
 	 *         condition.
 	 */
-	public default BetterList<T> where(Function<T, Boolean> predicate) {
+    default BetterList<T> where(Function<T, Boolean> predicate) {
 		BetterList<T> out = new BetterArrayList<>();
 		for (T element : this)
 			if (predicate.apply(element))
