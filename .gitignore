@@ -1,6 +1,4 @@
-/bin/
-/.classpath
-/.settings/
-/target/
+/out/
 /maven-repo.bat
 /.idea/
+*.iml
