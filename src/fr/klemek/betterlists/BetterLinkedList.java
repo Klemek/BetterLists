@@ -7,25 +7,23 @@ import java.util.LinkedList;
 /**
  * An extension of the java.util.LinkedList class which include some of the C#
  * LINQ useful functions.
- * 
- * @author Klemek
  *
+ * @author Klemek
  * @see java.util.LinkedList
  */
 public class BetterLinkedList<T> extends LinkedList<T> implements BetterList<T> {
 
-	private static final long serialVersionUID = 4837198308074701770L;
+    private static final long serialVersionUID = 4837198308074701770L;
 
-	/**
-	 * Constructs a list containing the elements of the specified collection, in the
-	 * order they are returned by the collection's iterator.
-	 * 
-	 * @param c
-	 *            - the collection whose elements are to be placed into this list
-	 */
-	public static <T> BetterLinkedList<T> fromList(Collection<T> c) {
-		return new BetterLinkedList<>(c);
-	}
+    /**
+     * Constructs a list containing the elements of the specified collection, in the
+     * order they are returned by the collection's iterator.
+     *
+     * @param c - the collection whose elements are to be placed into this list
+     */
+    public static <T> BetterLinkedList<T> fromList(Collection<T> c) {
+        return new BetterLinkedList<>(c);
+    }
 
     /**
      * Constructs a list containing the elements given in argument.
@@ -36,29 +34,27 @@ public class BetterLinkedList<T> extends LinkedList<T> implements BetterList<T> 
         return new BetterLinkedList<>(a);
     }
 
-	/**
-	 * Constructs an empty list.
-	 */
-	public BetterLinkedList() {
-		super();
-	}
+    /**
+     * Constructs an empty list.
+     */
+    public BetterLinkedList() {
+        super();
+    }
 
-	/**
-	 * Constructs a list containing the elements of the specified collection, in the
-	 * order they are returned by the collection's iterator.
-	 * 
-	 * @param c
-	 *            - the collection whose elements are to be placed into this list
-	 */
-	public BetterLinkedList(Collection<? extends T> c) {
-		super(c);
-	}
+    /**
+     * Constructs a list containing the elements of the specified collection, in the
+     * order they are returned by the collection's iterator.
+     *
+     * @param c - the collection whose elements are to be placed into this list
+     */
+    public BetterLinkedList(Collection<? extends T> c) {
+        super(c);
+    }
 
-	/**
+    /**
      * Constructs a list containing the elements given in argument.
      *
-     * @param a
-     *            - the elements to be placed into this list
+     * @param a - the elements to be placed into this list
      */
     public BetterLinkedList(T... a) {
         super(Arrays.asList(a));

@@ -4,7 +4,7 @@ An extension of the java.util.List interface which include some of the C# LINQ u
 
 List classes are extended as well. (ArrayList -> BetterArrayList)
 
-Current version v1.2
+Current version v1.3
 
 Before BetterLists :
 ```Java
@@ -30,7 +30,7 @@ NOTE : Please note that, unlike C# LINQ, these functions are not optimized at lo
 
 ## Download
 
-* [betterlists-1.2.jar](../../raw/master/download/betterlists-1.2.jar)
+* [betterlists-1.3.jar](../../raw/master/download/betterlists-1.3.jar)
 
 ## Maven
 
@@ -49,7 +49,7 @@ You can use this project as a maven dependency with this :
 	<dependency>
 		<groupId>klemek</groupId>
 		<artifactId>betterlists</artifactId>
-		<version>1.2</version>
+		<version>1.3</version>
 	</dependency>
 </dependencies>
 ```
@@ -71,6 +71,7 @@ You can use this project as a maven dependency with this :
 | [orderBy / orderByDescending](#orderby-orderbydescending) | Sorts the elements of a sequence in ascending order by using a specified comparator. (You can user orderByDescending to change the order) |
 | [reverse](#reverse) | Inverts the order of the elements in the sequence. |
 | [select](#select) | Projects each element of a sequence into a new form. |
+| [selectMany](#selectmany) | Projects each element of a sequence into a new list and flattens the resulting sequences into one sequence. |
 | [skip / skipWhile](#skip-skipwhile) | Bypasses elements in the sequence as long as a specified condition is true and then returns the remaining elements. |
 | [sum](#sum) | Computes the sum of the sequence of Double values that are obtained by invoking a transform function on each element of the input sequence. |
 | [take / takeWhile](#take-takewhile) | Returns a specified number of contiguous elements from the start of the sequence. |
@@ -176,6 +177,15 @@ BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
 
 BetterList<String> contactsMails = contacts.select(c -> c.getEmail());
 ```
+
+### selectMany
+Projects each element of a sequence into a new list and flattens the resulting sequences into one sequence.
+```Java
+BetterArrayList<Contact> contacts = BetterArrayList.fromList(someFunction());
+
+BetterList<String> contactsMails = contacts.select(c -> c.getEmail().split(";"));
+```
+
 
 ### skip / skipWhile
 Bypasses elements in the sequence as long as a specified condition is true and then returns the remaining elements.
