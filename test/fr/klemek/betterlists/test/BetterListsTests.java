@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class BetterListsTests {
@@ -241,12 +243,26 @@ public class BetterListsTests {
     }
 
     @Test
-    public void testSelectMany() {
+    public void testSelectManyArrays() {
         BetterArrayList<Dummy> bal1 = new BetterArrayList<>();
         bal1.add(new Dummy(1d, "hel;lo"));
         bal1.add(new Dummy(2d, "hel;lo"));
 
-        BetterArrayList<String> bal2 = (BetterArrayList<String>) bal1.selectMany(du -> du.s.split(";"));
+        BetterArrayList<String> bal2 = (BetterArrayList<String>) bal1.selectManyArrays(du -> du.s.split(";"));
+        Assert.assertEquals(4, bal2.size());
+        Assert.assertEquals("hel", bal2.get(0));
+        Assert.assertEquals("lo", bal2.get(1));
+        Assert.assertEquals("hel", bal2.get(2));
+        Assert.assertEquals("lo", bal2.get(3));
+    }
+
+    @Test
+    public void testSelectMany() {
+        BetterArrayList<List<String>> bal1 = new BetterArrayList<>();
+        bal1.add(Arrays.asList("hel","lo"));
+        bal1.add(Arrays.asList("hel","lo"));
+
+        BetterArrayList<String> bal2 = (BetterArrayList<String>) bal1.selectMany(du -> du);
         Assert.assertEquals(4, bal2.size());
         Assert.assertEquals("hel", bal2.get(0));
         Assert.assertEquals("lo", bal2.get(1));

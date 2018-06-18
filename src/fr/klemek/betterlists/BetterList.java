@@ -307,7 +307,23 @@ public interface BetterList<T> extends List<T> {
      * @return A List whose elements are the result of invoking the one-to-many
      * transform function on each element of the input sequence.
      */
-    default <E> BetterList<E> selectMany(Function<T, E[]> selector) {
+    default <E> BetterList<E> selectMany(Function<T, Collection<? extends E>> selector) {
+        BetterList<E> out = new BetterArrayList<>();
+        for (T element : this)
+            out.addAll(selector.apply(element));
+        return out;
+    }
+
+    /**
+     * Projects each element of a sequence into a new list and flattens the
+     * resulting sequences into one sequence.
+     *
+     * @param <E>      The type of the projected values lists
+     * @param selector - A transform function to apply to each element.
+     * @return A List whose elements are the result of invoking the one-to-many
+     * transform function on each element of the input sequence.
+     */
+    default <E> BetterList<E> selectManyArrays(Function<T, E[]> selector) {
         BetterList<E> out = new BetterArrayList<>();
         for (T element : this)
             out.addAll(Arrays.asList(selector.apply(element)));
