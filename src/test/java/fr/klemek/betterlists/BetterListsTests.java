@@ -1,6 +1,5 @@
-package fr.klemek.betterlists.test;
+package fr.klemek.betterlists;
 
-import fr.klemek.betterlists.BetterArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
