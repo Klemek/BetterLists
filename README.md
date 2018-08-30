@@ -37,20 +37,20 @@ NOTE : Please note that, unlike C# LINQ, these functions are not optimized at lo
 You can use this project as a maven dependency with this :
 ```XML
 <repositories>
-...
-	<repository>
-         <id>fr.klemek</id>
-         <url>https://github.com/klemek/mvn-repo/raw/master</url>
-     </repository>
+    ...
+    <repository>
+        <id>fr.klemek</id>
+        <url>https://github.com/klemek/mvn-repo/raw/master</url>
+    </repository>
 </repositories>
 ...
 <dependencies>
-...
-	<dependency>
-		<groupId>fr.klemek</groupId>
-		<artifactId>betterlists</artifactId>
-		<version>1.4</version>
-	</dependency>
+    ...
+    <dependency>
+        <groupId>fr.klemek</groupId>
+        <artifactId>betterlists</artifactId>
+        <version>1.4</version>
+    </dependency>
 </dependencies>
 ```
 
