@@ -1,4 +1,5 @@
-# BetterLists (by Klemek)
+# BetterLists
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.klemek/betterlists/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.klemek/betterlists)
 [![Build Status](https://travis-ci.org/Klemek/BetterLists.svg?branch=master)](https://travis-ci.org/Klemek/BetterLists)
 
 An extension of the java.util.List interface which include some of the C# LINQ useful functions.
@@ -28,6 +29,10 @@ BetterList<String> contactsEmails = contacts.skip(5)
 ```
 
 NOTE : Please note that, unlike C# LINQ, these functions are not optimized at low levels and will have the same impact as standard loops in your program. 
+
+## Download
+
+[betterlists-1.4.jar](../../releases/download/betterlists-1.4/betterlists-1.4.jar)
 
 ## Maven
 
