@@ -4,11 +4,11 @@
 
     <groupId>fr.klemek</groupId>
     <artifactId>betterlists</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
 
     <name>BetterLists</name>
     <description>An extension of the java.util.List interface which include some of the C# LINQ
-        useful functions. List classes are extended as well. (ArrayList -> BetterArrayList)
+        useful functions. List classes are extended as well. (ArrayList -&gt; BetterArrayList)
     </description>
     <url>https://github.com/Klemek/BetterLists</url>
     <developers>
