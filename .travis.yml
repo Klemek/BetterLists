@@ -4,3 +4,7 @@ jdk:
   - oraclejdk9
   - openjdk8
   - openjdk9
+script:
+  - mvn test jacoco:report
+after_success:
+  - mvn  coveralls:report
