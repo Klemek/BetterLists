@@ -1,7 +1,8 @@
 # BetterLists
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.klemek/betterlists/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.klemek/betterlists)
-[![Build Status](https://travis-ci.org/Klemek/BetterLists.svg?branch=master)](https://travis-ci.org/Klemek/BetterLists)
-[![Coverage Status](https://coveralls.io/repos/github/Klemek/BetterLists/badge.svg?branch=master)](https://coveralls.io/github/Klemek/BetterLists?branch=master)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.klemek/betterlists.svg)](https://search.maven.org/search?q=g:%22com.github.klemek%22%20AND%20a:%22betterlists%22)
+[![Build Status](https://img.shields.io/travis/Klemek/BetterLists.svg?style=popout)](https://travis-ci.org/Klemek/BetterLists)
+[![Coverage Status](https://img.shields.io/coveralls/github/Klemek/BetterLists.svg)](https://coveralls.io/github/Klemek/BetterLists?branch=master)
+![License](https://img.shields.io/github/license/Klemek/BetterLists.svg)
 
 An extension of the java.util.List interface which include some of the C# LINQ useful functions.
 
