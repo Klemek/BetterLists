@@ -19,7 +19,9 @@ public class BetterLinkedList<T> extends LinkedList<T> implements BetterList<T> 
      * Constructs a list containing the elements of the specified collection, in the
      * order they are returned by the collection's iterator.
      *
+     * @param <T> - the type of List
      * @param c - the collection whose elements are to be placed into this list
+     * @return the constructed list
      */
     public static <T> BetterLinkedList<T> fromList(Collection<T> c) {
         return new BetterLinkedList<>(c);
@@ -28,7 +30,9 @@ public class BetterLinkedList<T> extends LinkedList<T> implements BetterList<T> 
     /**
      * Constructs a list containing the elements given in argument.
      *
+     * @param <T> - the type of List
      * @param a - the elements to be placed into this list
+     * @return the constructed list
      */
     public static <T> BetterLinkedList<T> asList(T... a) {
         return new BetterLinkedList<>(a);
@@ -74,8 +78,8 @@ public class BetterLinkedList<T> extends LinkedList<T> implements BetterList<T> 
      * @param fromIndex - low endpoint (inclusive) of the subList
      * @param toIndex   - high endpoint (exclusive) of the subList
      * @return a view of the specified range within this list
-     * @throws IndexOutOfBoundsException for an illegal endpoint index value (fromIndex < 0 || toIndex >
-     *                                   size || fromIndex > toIndex)
+     * @throws IndexOutOfBoundsException for an illegal endpoint index value (fromIndex &lt; || toIndex &gt;
+     *                                   size || fromIndex &gt; toIndex)
      * @see java.util.List
      */
     @Override

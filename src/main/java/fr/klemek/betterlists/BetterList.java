@@ -247,6 +247,7 @@ public interface BetterList<T> extends List<T> {
     /**
      * Sorts the elements of a sequence in ascending order by using a specified comparer.
      *
+     * @param <E>      The type of the projected values lists
      * @param selector - A transform function to apply to each element.
      * @return a List whose elements are sorted according to a key.
      */
@@ -260,6 +261,7 @@ public interface BetterList<T> extends List<T> {
     /**
      * Sorts the elements of a sequence in descending order by using a specified comparer.
      *
+     * @param <E>      The type of the projected values lists
      * @param selector - A transform function to apply to each element.
      * @return a List whose elements are sorted according to a key.
      */
