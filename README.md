@@ -29,10 +29,6 @@ BetterList<String> contactsEmails = contacts.skip(5)
 
 NOTE : Please note that, unlike C# LINQ, these functions are not optimized at low levels and will have the same impact as standard loops in your program. 
 
-## Download
-
-* [betterlists-1.4.jar](../../raw/master/download/betterlists-1.4.jar)
-
 ## Maven
 
 You can use this project as a maven dependency with this :
