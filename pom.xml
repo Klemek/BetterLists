@@ -12,7 +12,11 @@
     </description>
     <url>https://github.com/Klemek/BetterLists</url>
     <developers>
-        <developer>Klemek</developer>
+        <developer>
+            <id>klemek</id>
+            <name>Kleme K</name>
+            <email>klemek@outlook.fr</email>
+        </developer>
     </developers>
     <licenses>
         <license>
