@@ -4,7 +4,7 @@
 
     <groupId>fr.klemek</groupId>
     <artifactId>betterlists</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
 
     <name>BetterLists</name>
 
@@ -158,7 +158,7 @@
         <connection>scm:git:git://github.com/klemek/betterlists.git</connection>
         <developerConnection>scm:git:git@github.com:klemek/betterlists.git</developerConnection>
         <url>https://github.com/klemek/betterlists</url>
-        <tag>HEAD</tag>
+        <tag>betterlists-1.4</tag>
     </scm>
 
     <profiles>
