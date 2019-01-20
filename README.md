@@ -5,7 +5,7 @@ An extension of the java.util.List interface which include some of the C# LINQ u
 
 List classes are extended as well. (ArrayList -> BetterArrayList)
 
-Current version v1.3
+Current version v1.4
 
 Before BetterLists :
 ```Java
