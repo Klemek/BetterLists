@@ -4,7 +4,7 @@
 
     <groupId>fr.klemek</groupId>
     <artifactId>betterlists</artifactId>
-    <version>1.4</version>
+    <version>1.5-SNAPSHOT</version>
 
     <name>BetterLists</name>
     <description>An extension of the java.util.List interface which include some of the C# LINQ
