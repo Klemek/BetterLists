@@ -1,4 +1,5 @@
 # BetterLists (by Klemek)
+[![Build Status](https://travis-ci.org/Klemek/BetterLists.svg?branch=master)](https://travis-ci.org/Klemek/BetterLists)
 
 An extension of the java.util.List interface which include some of the C# LINQ useful functions.
 
