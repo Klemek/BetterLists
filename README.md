@@ -3,6 +3,8 @@
 [![Build Status](https://img.shields.io/travis/Klemek/BetterLists.svg?style=popout)](https://travis-ci.org/Klemek/BetterLists)
 [![Coverage Status](https://img.shields.io/coveralls/github/Klemek/BetterLists.svg)](https://coveralls.io/github/Klemek/BetterLists?branch=master)
 ![License](https://img.shields.io/github/license/Klemek/BetterLists.svg)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/Klemek/BetterLists.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Klemek/BetterLists/context:java)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/Klemek/BetterLists.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Klemek/BetterLists/alerts/)
 
 An extension of the java.util.List interface which include some of the C# LINQ useful functions.
 
